@@ -1,0 +1,37 @@
+<style>
+  th,
+  td {
+    border: 1px solid black;
+    padding: 5px;
+  }
+</style>
+<form>
+  <label> Buscar por: </label>
+  <select #opcoesBusca>
+    <option value="id">ID</option>
+    <option value="nome">Nome</option>
+    <option value="pais">País</option> </select
+  ><br /><br />
+  <input type="text" #buscaInput />
+  <input
+    type="button"
+    value="buscar"
+    id="buscar"
+    (click)="buscar(opcoesBusca.value, buscaInput.value)"
+  />
+</form>
+<br /><br />
+<table style="border: 1px solid black;">
+  <tr>
+    <th>Id do Estádio</th>
+    <th>Nome do Estádio</th>
+    <th>País do Estádio</th>
+    <th>Total de Finais</th>
+  </tr>
+  <tr *ngFor="let estadio of estadios">
+    <td>{{ estadio.idStadium }}</td>
+    <td>{{ estadio.stadiumName }}</td>
+    <td>{{ estadio.stadiumCountry }}</td>
+    <td>{{ estadio.finalCount }}</td>
+  </tr>
+</table>

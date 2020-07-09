@@ -1,0 +1,25 @@
+<style>
+  th,
+  td {
+    border: 1px solid black;
+    padding: 5px;
+  }
+</style>
+<table style="border: 1px solid black;">
+  <tr>
+    <th>Id da Temporada</th>
+    <th>Ano da Temporada</th>
+    <th>Estádio da Final</th>
+    <th>Data da Final</th>
+    <th>Partida da Final</th>
+    <th>Campeão</th>
+  </tr>
+  <tr *ngFor="let final of finais">
+    <td>{{ final.idSeason }}</td>
+    <td>{{ final.leagueSeason }}</td>
+    <td>{{ final.finalStadium }}</td>
+    <td>{{ final.finalDate }}</td>
+    <td>{{ final.finalMatch }}</td>
+    <td>{{ final.leagueWinner }}</td>
+  </tr>
+</table>
