@@ -9,7 +9,15 @@ async function getSeasonLeagueById(request, response) {
   return response.json(await SeasonLeagueService.getSeasonLeagueById(id));
 }
 
+async function getSeasonLeagueByChampionName(request, response) {
+  const { name } = request.params;
+  return response.json(
+    await SeasonLeagueService.getSeasonLeagueByChampionName(name)
+  );
+}
+
 module.exports = {
   getAllSeasonLeagues,
-  getSeasonLeagueById
+  getSeasonLeagueById,
+  getSeasonLeagueByChampionName
 };

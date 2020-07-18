@@ -13,7 +13,7 @@ Stadium.init(
   {
     sequelize: connection,
     modelName: 'Stadium',
-    tableName: 'stadiums',
+    tableName: 'tb_stadium',
     timestamps: false,
     underscored: true
   }

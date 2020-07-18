@@ -6,5 +6,8 @@ const router = Router();
 
 router.get('/search/', SeasonLeagueController.getAllSeasonLeagues);
 router.get('/search/id/:id', SeasonLeagueController.getSeasonLeagueById);
-
+router.get(
+  '/search/champion/:name',
+  SeasonLeagueController.getSeasonLeagueByChampionName
+);
 module.exports = router;

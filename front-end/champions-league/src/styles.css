@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background-image: url("./app/images/champions-league-background.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right 0px bottom;
+  object-fit: cover;
+  width: 100%;
+  min-height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.table {
+  margin-left: 3%;
+  width: 50%;
+}
+
+.form {
+  padding-left: 15px;
+  background-color: mistyrose;
+  width: 42%;
+  min-width: 200px;
+}

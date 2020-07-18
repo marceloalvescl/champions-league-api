@@ -10,10 +10,27 @@ import { Estadio } from './estadio';
 })
 export class EstadiosComponent implements OnInit {
   estadios: Estadio[];
+  cols: any[];
   constructor(private service: EstadiosService) {}
 
   ngOnInit(): void {
     this.get();
+    this.cols = [
+      { field: 'id_stadium', header: 'Id' },
+      { field: 'stadium_name', header: 'Nome' },
+      { field: 'stadium_country', header: 'País' },
+      { field: 'final_count', header: 'Total de finais' },
+    ];
+  }
+
+  buscar(opcaoBusca: string, input: string) {
+    if (opcaoBusca == 'id') {
+      this.getById(input);
+    } else if (opcaoBusca == 'nome') {
+      this.getByName(input);
+    } else if (opcaoBusca == 'pais') {
+      this.getByCountry(input);
+    }
   }
 
   private get(): void {
@@ -25,15 +42,6 @@ export class EstadiosComponent implements OnInit {
         console.log(err);
       }
     );
-  }
-  buscar(opcaoBusca: string, input: string) {
-    if (opcaoBusca == 'id') {
-      this.getById(input);
-    } else if (opcaoBusca == 'nome') {
-      this.getByName(input);
-    } else if (opcaoBusca == 'pais') {
-      this.getByCountry(input);
-    }
   }
 
   private getById(id: string): void {

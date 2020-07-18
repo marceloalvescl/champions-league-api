@@ -1,25 +1,54 @@
-<style>
-  th,
-  td {
-    border: 1px solid black;
-    padding: 5px;
-  }
-</style>
-<table style="border: 1px solid black;">
-  <tr>
-    <th>Id da Temporada</th>
-    <th>Ano da Temporada</th>
-    <th>Estádio da Final</th>
-    <th>Data da Final</th>
-    <th>Partida da Final</th>
-    <th>Campeão</th>
-  </tr>
-  <tr *ngFor="let final of finais">
-    <td>{{ final.idSeason }}</td>
-    <td>{{ final.leagueSeason }}</td>
-    <td>{{ final.finalStadium }}</td>
-    <td>{{ final.finalDate }}</td>
-    <td>{{ final.finalMatch }}</td>
-    <td>{{ final.leagueWinner }}</td>
-  </tr>
-</table>
+<h3 class="first">Finais</h3>
+<div class="table">
+  <div class="form">
+    <br />
+    <form>
+      <label> Buscar por: </label>
+      <select #opcoesBusca>
+        <option value="id">ID</option>
+        <option value="campeao">Campeão</option>
+      </select>
+      <br />
+      <input type="text" #buscaInput />
+      <input
+        type="button"
+        value="buscar"
+        id="buscar"
+        (click)="buscar(opcoesBusca.value, buscaInput.value)"
+      />
+    </form>
+    <br />
+  </div>
+  <p-table [columns]="cols" [value]="finais">
+    <ng-template pTemplate="caption">
+      Lista de Finais
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-final>
+      <tr>
+        <td>{{ final.id_season }}</td>
+        <td>{{ final.season_year }}</td>
+        <td>{{ final.stadium_name }}</td>
+        <td>{{ final.final_date }}</td>
+        <td>{{ final.final_match }}</td>
+        <td>{{ final.team_name }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer" let-columns>
+      <tr>
+        <td *ngFor="let col of columns">
+          {{ col.header }}
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      {{ finais?.length }} finais.
+    </ng-template>
+  </p-table>
+</div>

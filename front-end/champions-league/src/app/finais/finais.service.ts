@@ -16,4 +16,16 @@ export class FinaisService {
   public get(): Observable<Final[]> {
     return this.http.get<Final[]>(`${this.urlApi}/seasonLeagues/search/`);
   }
+
+  public getById(id): Observable<Final[]> {
+    return this.http.get<Final[]>(
+      `${this.urlApi}/seasonLeagues/search/id/${id}`
+    );
+  }
+
+  public getByChampionName(name: string): Observable<Final[]> {
+    return this.http.get<Final[]>(
+      `${this.urlApi}/seasonLeagues/search/champion/${name}`
+    );
+  }
 }

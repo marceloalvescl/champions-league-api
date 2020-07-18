@@ -18,11 +18,11 @@ class SeasonLeague extends Model {}
 SeasonLeague.init(
   {
     idSeason: { type: DataTypes.INTEGER, primaryKey: true },
-    leagueSeason: { type: DataTypes.STRING, allowNull: false },
+    seasonYear: { type: DataTypes.STRING, allowNull: false },
     finalStadium: { type: DataTypes.STRING, allowNull: false },
     finalDate: { type: DataTypes.DATEONLY, allowNull: false },
     finalMatch: { type: DataTypes.STRING, allowNull: false },
-    leagueWinner: {
+    fkTeamWinner: {
       type: DataTypes.INTEGER,
       references: {
         model: WinnerTeam,
@@ -33,7 +33,7 @@ SeasonLeague.init(
   {
     sequelize: connection,
     modelName: 'SeasonLeague',
-    tableName: 'season_league',
+    tableName: 'tb_season_league',
     timestamps: false,
     underscored: true
   }
